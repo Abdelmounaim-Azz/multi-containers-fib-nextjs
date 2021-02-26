@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion":2,
+  "containerDefinitions":[
+    {
+      "name":"client",
+      "image":"abdelmounaimazz/multi-containers-client",
+      "hostname":"client",
+      "essential":false
+    },
+    {
+      "name":"server",
+      "image":"abdelmounaimazz/multi-containers-server",
+      "hostname":"api-express",
+      "essential":false
+    },
+    {
+      "name":"worker",
+      "image":"abdelmounaimazz/multi-containers-worker",
+      "hostname":"worker",
+      "essential":false
+    },
+    {
+      "name":"nginx",
+      "image":"abdelmounaimazz/multi-containers-nginx",
+      "hostname":"nginx",
+      "essential":true,
+      "postMappings":[
+        {
+          "hostPort":80,
+          "containerPort":80
+        }
+      ],
+      "links":["client","server"]
+    }
+  
+  ]
+}
