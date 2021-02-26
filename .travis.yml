@@ -13,7 +13,7 @@ after_success:
   - docker build -t abdelmounaimazz/multi-containers-server ./server
   - docker build -t abdelmounaimazz/multi-containers-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docher push abdelmounaimazz/multi-containers-client
-  - docher push abdelmounaimazz/multi-containers-nginx
-  - docher push abdelmounaimazz/multi-containers-server
-  - docher push abdelmounaimazz/multi-containers-worker
+  - docker push abdelmounaimazz/multi-containers-client
+  - docker push abdelmounaimazz/multi-containers-nginx
+  - docker push abdelmounaimazz/multi-containers-server
+  - docker push abdelmounaimazz/multi-containers-worker
