@@ -5,8 +5,8 @@ services:
 before_install:
   - docker build -t abdelmounaimazz/app-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run -e CI=true  abdelmounaimazz/app-test yarn run test
+# script:
+#   - docker run -e CI=true  abdelmounaimazz/app-test yarn run test
 after_success:
   - docker build -t abdelmounaimazz/multi-containers-client ./client
   - docker build -t abdelmounaimazz/multi-containers-nginx ./nginx
