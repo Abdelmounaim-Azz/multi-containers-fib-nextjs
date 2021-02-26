@@ -5,19 +5,22 @@
       "name":"client",
       "image":"abdelmounaimazz/multi-containers-client",
       "hostname":"client",
-      "essential":false
+      "essential":false,
+      "memory": 120
     },
     {
       "name":"server",
       "image":"abdelmounaimazz/multi-containers-server",
       "hostname":"api-express",
-      "essential":false
+      "essential":false,
+      "memory": 120
     },
     {
       "name":"worker",
       "image":"abdelmounaimazz/multi-containers-worker",
       "hostname":"worker",
-      "essential":false
+      "essential":false,
+      "memory": 120
     },
     {
       "name":"nginx",
@@ -30,7 +33,8 @@
           "containerPort":80
         }
       ],
-      "links":["client","server"]
+      "links":["client","server"],
+      "memory": 120
     }
   
   ]

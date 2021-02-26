@@ -17,3 +17,14 @@ after_success:
   - docker push abdelmounaimazz/multi-containers-nginx
   - docker push abdelmounaimazz/multi-containers-server
   - docker push abdelmounaimazz/multi-containers-worker
+# deploy:
+#   provider: elasticbeanstalk
+#   region: us-west-2
+#   app: multi-containers
+#   env: MultiContainers-env
+#   bucket_name: elasticbeanstalk-us-west-2
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY
