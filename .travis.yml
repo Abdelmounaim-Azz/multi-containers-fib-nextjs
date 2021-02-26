@@ -1,0 +1,19 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t abdelmounaimazz/app-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true  abdelmounaimazz/app-test yarn run test
+after_success:
+  - docker build -t abdelmounaimazz/multi-containers-client ./client
+  - docker build -t abdelmounaimazz/multi-containers-nginx ./nginx
+  - docker build -t abdelmounaimazz/multi-containers-server ./server
+  - docker build -t abdelmounaimazz/multi-containers-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docher push abdelmounaimazz/multi-containers-client
+  - docher push abdelmounaimazz/multi-containers-nginx
+  - docher push abdelmounaimazz/multi-containers-server
+  - docher push abdelmounaimazz/multi-containers-worker
