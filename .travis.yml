@@ -2,8 +2,8 @@ sudo: required
 services:
   - docker
 language: generic
-before_install:
-  - docker build -t abdelmounaimazz/app-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#   - docker build -t abdelmounaimazz/app-test -f ./client/Dockerfile.dev ./client
 
 # script:
 #   - docker run -e CI=true  abdelmounaimazz/app-test yarn run test
